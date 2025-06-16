@@ -100,26 +100,26 @@ class Game:
 
 
 class Pattern:
-    """Define all methods needed for Pattern"""
+    """Define all methods needed for Pattern."""
 
     def __init__(self, grid):
         """Assign grid to object pattern."""
         self.grid = grid
 
     def flip_vertical(self):
-        """Flip Vertical"""
+        """Flip Vertical."""
         return Pattern(self.grid[::-1])
 
     def flip_horizontal(self):
-        """Flip Horizontal"""
+        """Flip Horizontal."""
         return Pattern(np.flip(self.grid, 1))
 
     def flip_diag(self):
-        """Flip Diagonal"""
+        """Flip Diagonal."""
         return Pattern(np.transpose(self.grid))
 
     def rotate(self, n):
-        """Rotate"""
+        """Rotate."""
         result = self
         for i in range(n):
             result = result.flip_diag().flip_vertical()

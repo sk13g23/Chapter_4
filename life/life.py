@@ -78,10 +78,10 @@ class Game:
         for i in range(self.board.shape[0]):
             for j in range(self.board.shape[1]):
                 self.board[i, j] = 1 if (
-                            neighbourcount[i, j] == 3
-                            or (neighbourcount[i, j] == 2
-                                and self.board[i, j])
-                                        ) else 0
+                        neighbourcount[i, j] == 3
+                        or (neighbourcount[i, j] == 2
+                            and self.board[i, j])
+                ) else 0
 
     def __setitem__(self, key, value):
         """Define fetching elements through square brackets."""
@@ -93,18 +93,14 @@ class Game:
         pyplot.matshow(self.board, fignum=0, cmap='binary')
         pyplot.show()
 
-    def insert(self,thing,coords):
+    def insert(self, thing, coords):
         """Insert Glider into the game board"""
-        a , b = coords[0]-1, coords[1]-1
-        self.board[a:a+3,b:b+3] = thing.grid
-
-
-
-
+        a, b = coords[0] - 1, coords[1] - 1
+        self.board[a:a + 3, b:b + 3] = thing.grid
 
 
 class Pattern:
-    def __init__(self,grid):
+    def __init__(self, grid):
         """Assign grid to object pattern."""
         self.grid = grid
 
@@ -112,15 +108,13 @@ class Pattern:
         return Pattern(self.grid[::-1])
 
     def flip_horizontal(self):
-        return Pattern(np.flip(self.grid,1))
+        return Pattern(np.flip(self.grid, 1))
 
     def flip_diag(self):
         return Pattern(np.transpose(self.grid))
 
-    def rotate(self,n):
+    def rotate(self, n):
         result = self
         for i in range(n):
             result = result.flip_diag().flip_vertical()
         return result
-
-

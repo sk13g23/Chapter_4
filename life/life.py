@@ -1,3 +1,6 @@
+"""Short Summary
+Defines all the methods needed to setup the game of life
+"""
 import numpy as np
 from matplotlib import pyplot
 from scipy.signal import convolve2d
@@ -51,6 +54,7 @@ glider_gun = np.array([
 
 
 class Game:
+    """Defines all the methods needed to setup the game of life"""
     def __init__(self, size):
         """Initialize the game. """
         self.board = np.zeros((size, size))
@@ -82,7 +86,7 @@ class Game:
         self.board[key] = value
 
     def show(self):
-        """Allows the cells to appear on the interacitve game screen."""
+        """Allows the cells to appear on the interactive game screen."""
         pyplot.clf()
         pyplot.matshow(self.board, fignum=0, cmap='binary')
         pyplot.show()

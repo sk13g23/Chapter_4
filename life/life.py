@@ -52,9 +52,11 @@ glider_gun = np.array([
 
 class Game:
     def __init__(self, size):
+        '''Initialize the game '''
         self.board = np.zeros((size, size))
 
     def play(self):
+        '''Sets up the game'''
         print("Playing life. Press ctrl + c to stop.")
         pyplot.ion()
         while True:
@@ -63,6 +65,7 @@ class Game:
             pyplot.pause(0.0000005)
 
     def move(self):
+        '''Defines the movement of the cells'''
         stencil = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
         neighbourcount = convolve2d(self.board, stencil, mode='same')
 
@@ -75,9 +78,11 @@ class Game:
                                         ) else 0
 
     def __setitem__(self, key, value):
+        '''Defines fetching elements through square brackets'''
         self.board[key] = value
 
     def show(self):
+        '''Allows the cells to appear on the interacitve game screen'''
         pyplot.clf()
         pyplot.matshow(self.board, fignum=0, cmap='binary')
         pyplot.show()

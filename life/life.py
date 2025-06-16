@@ -92,3 +92,26 @@ class Game:
         pyplot.clf()
         pyplot.matshow(self.board, fignum=0, cmap='binary')
         pyplot.show()
+
+
+class Pattern:
+    def __init__(self,matrix):
+        """Assign matrix to object pattern."""
+        self.matrix = matrix
+
+    def flip_vertical(self):
+        return Pattern(self.matrix[::-1])
+
+    def flip_horizontal(self):
+        return Pattern(np.flip(self.matrix,1))
+
+    def flip_diag(self):
+        return Pattern(np.transpose(self.matrix))
+
+    def rotate(self,n):
+        result = self
+        for i in range(n):
+            result = result.flip_diag().flip_vertical()
+        return result
+
+

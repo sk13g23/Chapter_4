@@ -93,6 +93,15 @@ class Game:
         pyplot.matshow(self.board, fignum=0, cmap='binary')
         pyplot.show()
 
+    def insert(self,thing,coords):
+        """Insert Glider into the game board"""
+        a , b = coords[0]-1, coords[1]-1
+        self.board[a:a+3,b:b+3] = thing.grid
+
+
+
+
+
 
 class Pattern:
     def __init__(self,grid):

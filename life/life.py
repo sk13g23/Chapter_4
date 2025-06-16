@@ -94,26 +94,32 @@ class Game:
         pyplot.show()
 
     def insert(self, thing, coords):
-        """Insert Glider into the game board"""
+        """Insert Glider into the game board."""
         a, b = coords[0] - 1, coords[1] - 1
         self.board[a:a + 3, b:b + 3] = thing.grid
 
 
 class Pattern:
+    """Define all methods needed for Pattern"""
+
     def __init__(self, grid):
         """Assign grid to object pattern."""
         self.grid = grid
 
     def flip_vertical(self):
+        """Flip Vertical"""
         return Pattern(self.grid[::-1])
 
     def flip_horizontal(self):
+        """Flip Horizontal"""
         return Pattern(np.flip(self.grid, 1))
 
     def flip_diag(self):
+        """Flip Diagonal"""
         return Pattern(np.transpose(self.grid))
 
     def rotate(self, n):
+        """Rotate"""
         result = self
         for i in range(n):
             result = result.flip_diag().flip_vertical()

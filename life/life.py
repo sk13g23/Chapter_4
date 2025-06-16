@@ -1,4 +1,5 @@
-"""Short Summary
+"""Short Summary.
+
 Defines all the methods needed to setup the game of life
 """
 import numpy as np
@@ -54,9 +55,10 @@ glider_gun = np.array([
 
 
 class Game:
-    """Defines all the methods needed to setup the game of life"""
+    """Defines all the methods needed to setup the game of life."""
+
     def __init__(self, size):
-        """Initialize the game. """
+        """Initialize the game."""
         self.board = np.zeros((size, size))
 
     def play(self):

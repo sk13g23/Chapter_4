@@ -95,18 +95,18 @@ class Game:
 
 
 class Pattern:
-    def __init__(self,matrix):
-        """Assign matrix to object pattern."""
-        self.matrix = matrix
+    def __init__(self,grid):
+        """Assign grid to object pattern."""
+        self.grid = grid
 
     def flip_vertical(self):
-        return Pattern(self.matrix[::-1])
+        return Pattern(self.grid[::-1])
 
     def flip_horizontal(self):
-        return Pattern(np.flip(self.matrix,1))
+        return Pattern(np.flip(self.grid,1))
 
     def flip_diag(self):
-        return Pattern(np.transpose(self.matrix))
+        return Pattern(np.transpose(self.grid))
 
     def rotate(self,n):
         result = self
